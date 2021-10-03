@@ -4,6 +4,7 @@ use std::io::{BufRead, BufReader};
 use std::path::Path;
 
 mod parser;
+mod render;
 
 fn main() {
     let path = &std::env::args().nth(1).expect("error: no path given");
@@ -15,8 +16,14 @@ fn main() {
 
     let file = File::open(path).expect("error: cannot read file");
     let buf = BufReader::new(file);
-    let lines: Vec<String> = buf
+    let mut lines: Vec<String> = buf
         .lines()
         .map(|l| l.expect("error: cannot parse line"))
         .collect();
+
+    render::render(&mut lines);
+
+    for line in lines {
+        println!("{}", line);
+    }
 }

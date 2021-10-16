@@ -20,7 +20,7 @@ pub fn render(lines: &mut Vec<String>) {
         for index in block.start..block.end {
             if let Some((w, _h)) = dimensions() {
                 if lines[index].len() < w {
-                    for _ in 0..(w - lines[index].len()) {
+                    for _ in 0..(w - lines[index].len() - 4) {
                         lines[index].push_str(" ");
                     }
                 }

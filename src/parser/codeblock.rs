@@ -16,7 +16,7 @@ impl CodeBlock {
         let mut header: Vec<String> = Vec::new();
 
         for (index, line) in lines.iter().enumerate() {
-            if cb_start_re.is_match(line){
+            if cb_start_re.is_match(line) {
                 cb_start.push(index);
 
                 let mut token = line.clone();

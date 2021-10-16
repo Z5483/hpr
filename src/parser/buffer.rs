@@ -8,7 +8,7 @@ pub struct Buffer {
 
 impl Buffer {
     pub fn new(lines: Vec<String>) -> Buffer {
-        let re = Regex::new(r"(^#)#+").unwrap();
+        let re = Regex::new(r"^.+█").unwrap();
         let num_of_page: usize = lines.iter().filter(|l| re.is_match(l).unwrap()).count();
 
         let mut header_pos: Vec<usize> = Vec::new();

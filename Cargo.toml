@@ -4,6 +4,13 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
+anyhow = "1.0.42"
+better-panic = "0.2.0"
 fancy-regex = "0.7.1"
 syntect = "4.6.0"
+ansi-to-tui = "0.4.1"
 term_size = "0.3.2"
+crossbeam-channel = "0.5.1"
+lazy_static = "1.4.0"
+crossterm = "0.21.0"
+tui = { version = "0.16.0", default-features = false, features = ["crossterm", "serde"] }

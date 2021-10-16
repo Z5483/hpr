@@ -1,10 +1,11 @@
-use ansi_to_tui::ansi_to_text;
 use tui::backend::Backend;
 use tui::layout::{Constraint, Direction, Layout};
 use tui::style::Style;
-use tui::text::{Span, Spans, Text};
+use tui::text::{Span, Spans};
 use tui::widgets::Paragraph;
 use tui::Terminal;
+
+use ansi4tui::bytes_to_text;
 
 use crate::app::App;
 
@@ -22,9 +23,8 @@ pub fn draw<B: Backend>(terminal: &mut Terminal<B>, app: &mut App) {
                 )
                 .split(frame.size());
 
-            let content = Paragraph::new(Text::from(
-                ansi_to_text(app.contents[app.current_page - 1].bytes()).unwrap(),
-            ));
+            let text = bytes_to_text(app.contents[app.current_page - 1].clone());
+            let content = Paragraph::new(text);
 
             let line_count: u16 = app.num_of_line[app.current_page - 1] as u16;
             if layout[1].height < line_count {

@@ -1,10 +1,10 @@
 use ansi_to_tui::ansi_to_text;
-use tui::layout::{Constraint, Direction, Layout};
-use tui::text::{Span, Spans, Text};
-use tui::Terminal;
 use tui::backend::Backend;
-use tui::widgets::Paragraph;
+use tui::layout::{Constraint, Direction, Layout};
 use tui::style::Style;
+use tui::text::{Span, Spans, Text};
+use tui::widgets::Paragraph;
+use tui::Terminal;
 
 use crate::app::App;
 

@@ -1,10 +1,10 @@
 use std::ffi::OsStr;
-use std::time::Duration;
-use std::sync::{Arc, Mutex};
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use std::{io, panic, thread};
 use std::path::Path;
+use std::sync::{Arc, Mutex};
+use std::time::Duration;
+use std::{io, panic, thread};
 
 use tui::backend::CrosstermBackend;
 use tui::Terminal;
@@ -16,10 +16,10 @@ use crossterm::{cursor, execute, terminal};
 use lazy_static::lazy_static;
 
 mod app;
+mod draw;
+mod event;
 mod parser;
 mod render;
-mod event;
-mod draw;
 
 lazy_static! {
     pub static ref REDRAW_REQUEST: (Sender<()>, Receiver<()>) = bounded(1);

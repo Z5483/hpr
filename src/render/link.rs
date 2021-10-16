@@ -1,4 +1,4 @@
-use fancy_regex::Regex;
+use regex::Regex;
 
 pub fn render(lines: &mut Vec<String>) {
     let link_re = Regex::new(r"!?\[(?P<name>.+)\]\((?P<link>.+)\)").unwrap();

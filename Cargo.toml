@@ -6,7 +6,7 @@ edition = "2018"
 [dependencies]
 anyhow = "1.0.42"
 better-panic = "0.2.0"
-fancy-regex = "0.7.1"
+regex = "1.5.4"
 syntect = "4.6.0"
 ansi4tui = "0.2.0"
 term_size = "0.3.2"

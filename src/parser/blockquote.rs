@@ -1,4 +1,4 @@
-use fancy_regex::Regex;
+use regex::Regex;
 
 pub struct BlockQuote {
     pub position: usize,
@@ -11,7 +11,7 @@ impl BlockQuote {
         let mut pos: Vec<usize> = Vec::new();
 
         for (index, line) in lines.iter().enumerate() {
-            if bq_regex.is_match(line).unwrap() {
+            if bq_regex.is_match(line) {
                 pos.push(index);
             }
         }

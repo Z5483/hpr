@@ -1,4 +1,4 @@
-use fancy_regex::Regex;
+use regex::Regex;
 
 pub struct Header {
     pub position: usize,
@@ -11,7 +11,7 @@ impl Header {
         let mut pos: Vec<usize> = Vec::new();
 
         for (index, line) in lines.iter().enumerate() {
-            if header_re.is_match(line).unwrap() {
+            if header_re.is_match(line) {
                 pos.push(index);
             }
         }

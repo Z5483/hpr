@@ -1,4 +1,4 @@
-use fancy_regex::Regex;
+use regex::Regex;
 
 fn render_italic(lines: &mut Vec<String>) {
     let link_re = Regex::new(r"\*(?P<text>.+)\*").unwrap();

@@ -1,16 +1,23 @@
-use crate::parser::Header;
 use fancy_regex::Regex;
 
 pub fn render(lines: &mut Vec<String>) {
-    let header_pos = Header::find_headers(lines.to_vec());
-    let header_char = Regex::new(r"#").unwrap();
+    let regex = Regex::new(r"^#+(\s+)?(?P<text>.+)").unwrap();
+    let hash_regex = Regex::new(r"#").unwrap();
 
-    for heading in header_pos.iter() {
-        lines[heading.position] = header_char
-            .replace_all(&lines[heading.position], "█")
-            .to_string();
-        lines[heading.position] =
-            "[38;5;122m".to_owned() + &lines[heading.position].clone().to_owned();
-        lines[heading.position].push_str("[0m");
+    for line in lines {
+        *line = regex.replace_all(line, {
+            let count = hash_regex.find_iter(line).count();
+            let mut text: String = String::new();
+
+            text.push_str("[38;5;122m");
+
+            for _ in 0..count {
+                text.push_str("█");
+            }
+
+            text.push_str(" $text[0m");
+
+            text
+        }).to_string();
     }
 }

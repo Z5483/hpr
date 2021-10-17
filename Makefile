@@ -6,7 +6,7 @@ MANPREFIX=$(PREFIX)/share/man
 
 all: hpr
 
-pr:
+hpr:
 	cargo build --release -vv
 	cp target/release/hpr ./
 

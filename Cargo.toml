@@ -3,6 +3,9 @@ name = "hpr"
 version = "0.1.0"
 edition = "2018"
 
+[profile.release]
+lto = true
+
 [dependencies]
 anyhow = "1.0.42"
 better-panic = "0.2.0"

@@ -1,5 +1,5 @@
 use crate::parser::Header;
-use regex::Regex;
+use fancy_regex::Regex;
 
 pub fn render(lines: &mut Vec<String>) {
     let header_pos = Header::find_headers(lines.to_vec());

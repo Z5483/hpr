@@ -2,7 +2,7 @@ use tui::backend::Backend;
 use tui::layout::{Constraint, Direction, Layout, Rect};
 use tui::style::Style;
 use tui::text::{Span, Spans};
-use tui::widgets::{Paragraph, Wrap};
+use tui::widgets::Paragraph;
 use tui::Terminal;
 
 use ansi4tui::bytes_to_text;

@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 pub struct Buffer {
     pub contents: Vec<String>,
@@ -9,11 +9,11 @@ pub struct Buffer {
 impl Buffer {
     pub fn new(lines: Vec<String>) -> Buffer {
         let re = Regex::new(r"^.+█").unwrap();
-        let num_of_page: usize = lines.iter().filter(|l| re.is_match(l)).count();
+        let num_of_page: usize = lines.iter().filter(|l| re.is_match(l).unwrap()).count();
 
         let mut header_pos: Vec<usize> = Vec::new();
         for (index, l) in lines.iter().enumerate() {
-            if re.is_match(l) {
+            if re.is_match(l).unwrap() {
                 header_pos.push(index);
             }
         }

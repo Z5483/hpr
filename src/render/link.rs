@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 pub fn render(lines: &mut Vec<String>) {
     let link_re = Regex::new(r"!?\[(?P<name>[><?@+'`~^%&\*\{\}.!#|\\\$';,:;=/\(\),\-\w\s+]+)\]\((?P<link>[><?@+'`~^%&\*\[\]\{\}.!#|\\\$';,:;=/,\-\w\s+]+)\)").unwrap();

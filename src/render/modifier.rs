@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 fn render_italic(lines: &mut Vec<String>) {
     let link_re =

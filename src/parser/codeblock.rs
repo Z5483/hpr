@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 pub struct CodeBlock {
     pub header: String,
@@ -18,7 +18,7 @@ impl CodeBlock {
         let mut header: Vec<String> = Vec::new();
 
         for (index, line) in lines.iter().enumerate() {
-            if cb_re.is_match(line) {
+            if cb_re.is_match(line).unwrap() {
                 cb_total.push(index);
             }
         }

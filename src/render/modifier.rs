@@ -30,6 +30,14 @@ fn render_bold_italic(lines: &mut Vec<String>) {
     }
 }
 
+fn render_strikethrough(lines: &mut Vec<String>) {
+    let regex = Regex::new(r"~~(?P<text>(?!~).+)~~").unwrap();
+
+    for line in lines.iter_mut() {
+        *line = regex.replace_all(line, "[9m$text[0m").to_string();
+    }
+}
+
 fn render_inline(lines: &mut Vec<String>) {
     let regex = Regex::new(r"`(?P<text>(?!`).+)`").unwrap();
 
@@ -44,5 +52,6 @@ pub fn render(lines: &mut Vec<String>) {
     render_bold_italic(lines);
     render_bold(lines);
     render_italic(lines);
+    render_strikethrough(lines);
     render_inline(lines);
 }

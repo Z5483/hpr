@@ -4,4 +4,5 @@ pub fn render(lines: &mut Vec<String>) {
     super::link::render(lines);
     super::header::render(lines);
     super::modifier::render(lines);
+    super::horizontal_rule::render(lines);
 }

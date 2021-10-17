@@ -1,10 +1,23 @@
-use crate::parser::BlockQuote;
+use fancy_regex::Regex;
 
 pub fn render(lines: &mut Vec<String>) {
-    let blockquote_pos = BlockQuote::find_blockquotes(lines.to_vec());
+    let regex = Regex::new(r"^(?P<dash>(>[\s+]?)+)(?P<text>.+)").unwrap();
+    let dash_regex = Regex::new(r">").unwrap();
 
-    for block in blockquote_pos.iter() {
-        lines[block.position] = "[38;5;242m".to_owned() + &lines[block.position].clone().to_owned();
-        lines[block.position].push_str("[0m");
+    for line in lines {
+        *line = regex.replace_all(line, {
+            let count = dash_regex.find_iter(line).count();
+            let mut text: String = String::new();
+
+            text.push_str("[38;5;242m");
+
+            for _ in 0..count {
+                text.push_str("▏ ");
+            }
+
+            text.push_str("$text[0m");
+
+            text
+        }).to_string();
     }
 }

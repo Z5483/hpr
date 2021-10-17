@@ -4,17 +4,17 @@ VERSION=0.1.0
 PREFIX=/usr/local
 MANPREFIX=$(PREFIX)/share/man
 
-all: pr
+all: hpr
 
 pr:
 	cargo build --release -vv
-	cp target/release/pr ./
+	cp target/release/hpr ./
 
 clean:
 	cargo clean -vv
-	rm pr
+	rm hpr
 
-install: pr
+install: hpr
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp -f target/release/tdr $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/tdr

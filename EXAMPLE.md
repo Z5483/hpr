@@ -15,15 +15,7 @@ ___
 
 ## Typographic replacements
 
-Enable typographer option to see result.
-
 (c) (C) (r) (R) (tm) (TM) (p) (P) +-
-
-test.. test... test..... test?..... test!....
-
-!!!!!! ???? ,,  -- ---
-
-"Smartypants, double quotes" and 'single quotes'
 
 ## Emphasis
 
@@ -132,7 +124,3 @@ Right aligned columns
 
 ![Minion](https://octodex.github.com/images/minion.png)
 ![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]

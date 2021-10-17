@@ -69,7 +69,7 @@ pub fn draw<B: Backend>(terminal: &mut Terminal<B>, app: &mut App) {
             layout[1] = add_padding(layout[1], 2, PaddingDirection::Top);
 
             let text = bytes_to_text(app.contents[app.current_page - 1].clone());
-            let content = Paragraph::new(text).wrap(Wrap { trim: false });
+            let content = Paragraph::new(text);
 
             let line_count: u16 = app.num_of_line[app.current_page - 1] as u16;
 

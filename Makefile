@@ -10,6 +10,9 @@ hpr:
 	cargo build --release -vv
 	cp target/release/hpr ./
 
+test: hpr
+	./hpr EXAMPLE.md
+
 clean:
 	cargo clean -vv
 	rm hpr
@@ -22,4 +25,4 @@ install: hpr
 uninstall:
 	rm -r $(DESTDIR)$(PREFIX)/bin/tdr
 
-.PHONY: all clean install uninstall
+.PHONY: all test clean install uninstall

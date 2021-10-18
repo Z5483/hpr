@@ -1,7 +1,7 @@
 use fancy_regex::Regex;
 
 pub fn render(lines: &mut Vec<String>) {
-    let link_re = Regex::new(r"!?\[(?P<name>[><?@+'`~^%&\*\{\}.!#|\\\$';,:;=/\(\),\-\w\s+]+)\]\((?P<link>[><?@+'`~^%&\*\[\]\{\}.!#|\\\$';,:;=/,\-\w\s+]+)\)").unwrap();
+    let link_re = Regex::new(r"!?\[(?P<name>(?!\[\]).+)\]\((?P<link>(?!\(\)).+)\)").unwrap();
 
     for line in lines.iter_mut() {
         *line = link_re

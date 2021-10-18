@@ -43,7 +43,7 @@ fn render_inline(lines: &mut Vec<String>) {
 
     for line in lines.iter_mut() {
         *line = regex
-            .replace_all(line, "[48;5;235m[38;5;220m$text[0m")
+            .replace_all(line, "[38;5;220m$text[0m")
             .to_string();
     }
 }

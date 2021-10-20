@@ -6,4 +6,5 @@ pub fn render(lines: &mut Vec<String>) {
     super::modifier::render(lines);
     super::horizontal_rule::render(lines);
     super::typographic::render(lines);
+    super::list::render(lines);
 }

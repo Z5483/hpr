@@ -1,4 +1,4 @@
-use fancy_regex::{Regex, escape};
+use fancy_regex::{escape, Regex};
 
 fn sub_char(lines: &mut Vec<String>, regex: &str, sub: &str) {
     let regex = Regex::new(&escape(regex)).unwrap();

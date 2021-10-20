@@ -42,9 +42,7 @@ fn render_inline(lines: &mut Vec<String>) {
     let regex = Regex::new(r"`(?P<text>(?!`).+)`").unwrap();
 
     for line in lines.iter_mut() {
-        *line = regex
-            .replace_all(line, "[38;5;220m$text[0m")
-            .to_string();
+        *line = regex.replace_all(line, "[38;5;220m$text[0m").to_string();
     }
 }
 

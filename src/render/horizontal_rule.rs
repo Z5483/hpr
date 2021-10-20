@@ -1,5 +1,5 @@
-use term_size::dimensions;
 use fancy_regex::Regex;
+use term_size::dimensions;
 
 fn draw_line() -> String {
     if let Some((w, _h)) = dimensions() {

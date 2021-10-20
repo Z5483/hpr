@@ -5,19 +5,21 @@ pub fn render(lines: &mut Vec<String>) {
     let hash_regex = Regex::new(r"#").unwrap();
 
     for line in lines {
-        *line = regex.replace_all(line, {
-            let count = hash_regex.find_iter(line).count();
-            let mut text: String = String::new();
+        *line = regex
+            .replace_all(line, {
+                let count = hash_regex.find_iter(line).count();
+                let mut text: String = String::new();
 
-            text.push_str("[38;5;122m");
+                text.push_str("[38;5;122m");
 
-            for _ in 0..count {
-                text.push_str("█");
-            }
+                for _ in 0..count {
+                    text.push_str("█");
+                }
 
-            text.push_str(" $text[0m");
+                text.push_str(" $text[0m");
 
-            text
-        }).to_string();
+                text
+            })
+            .to_string();
     }
 }

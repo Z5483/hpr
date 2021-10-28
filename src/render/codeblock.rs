@@ -1,5 +1,3 @@
-use std::fs;
-
 use syntect::easy::HighlightLines;
 use syntect::highlighting::{Style, ThemeSet};
 use syntect::parsing::SyntaxSet;
@@ -64,12 +62,8 @@ fn find_blocks(lines: Vec<String>) -> Vec<CodeBlock> {
 }
 
 pub fn render(lines: &mut Vec<String>) {
-    let file = fs::read_to_string("/home/khue/.base16").unwrap();
-    let scheme = file.split_whitespace().nth(0).unwrap();
-    let theme = "/home/khue/code/hpr/theme/base16-".to_owned() + &scheme + ".tmTheme";
-
     let ps = SyntaxSet::load_defaults_newlines();
-    let ts = ThemeSet::get_theme(theme).unwrap();
+    let ts = ThemeSet::get_theme("theme/base16-monokai.tmTheme").unwrap();
 
     let codeblock = find_blocks(lines.to_vec());
 
